@@ -13,5 +13,5 @@ EOT
 WORKDIR /contrib
 
 # RUN <<EOT
-# git clone https://sourceware.org/git/binutils-gdb.git source-orig
+# git clone <repo> source-orig
 # EOT
