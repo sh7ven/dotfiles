@@ -6,6 +6,10 @@ se shm-=S
 se rnu
 se clipboard=unnamedplus
 
+" vn <leader>y :'<,'>w !wl-copy<CR><CR>
+" nn <leader>p :r !wl-paste<CR>
+" aug AutoCopy au! | au TextYankPost * sil! cal system('wl-copy', getreg('"')) aug END
+
 " tabs for Makefile indent
 au VimEnter Makefile se noet
 
