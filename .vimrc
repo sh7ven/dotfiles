@@ -5,6 +5,8 @@ se nowrap | se mouse=a
 se shm-=S
 se rnu
 se clipboard=unnamedplus
+se re=1
+se hls
 
 " vn <leader>y :'<,'>w !wl-copy<CR><CR>
 " nn <leader>p :r !wl-paste<CR>
