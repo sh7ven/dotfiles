@@ -8,6 +8,9 @@ se clipboard=unnamedplus
 se re=1
 se hls
 
+se tm=1000
+se ttm=0
+
 " vn <leader>y :'<,'>w !wl-copy<CR><CR>
 " nn <leader>p :r !wl-paste<CR>
 " aug AutoCopy au! | au TextYankPost * sil! cal system('wl-copy', getreg('"')) aug END
@@ -16,5 +19,6 @@ se hls
 au VimEnter Makefile se noet
 
 let g:netrw_browse_split=3
+" nn <s-e> <Cmd>let f=input('> ','','file')\|if filereadable(f)\|exe 'tabnew' f\|el\|echom '!'\|en<CR>
 nn <s-e> <Cmd>let f=input('> ','','file')\|if filereadable(f)\|exe 'sp' f\|el\|echom '!'\|en<CR>
 nn <c-e> :Explore $PWD<CR>
