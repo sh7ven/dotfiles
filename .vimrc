@@ -17,6 +17,7 @@ se ttm=0
 
 " tabs for Makefile indent
 au VimEnter Makefile se noet
+au VimEnter * if expand('%:t') !~ '\.' | se wrap
 
 let g:netrw_browse_split=3
 " nn <s-e> <Cmd>let f=input('> ','','file')\|if filereadable(f)\|exe 'tabnew' f\|el\|echom '!'\|en<CR>
