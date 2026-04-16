@@ -1,4 +1,3 @@
-" this a comment
 hi clear
 
 if exists("syntax_on")
@@ -19,5 +18,4 @@ hi Search     guifg=#000000 guibg=#ffffff ctermfg=0 ctermbg=4 gui=bold cterm=bol
 hi String     guifg=#00ff00               ctermfg=11          gui=bold cterm=bold
 
 " C specific 
-" hi cComment   guifg=#00fe7a
 hi cConstant  guifg=#eeaa00                                   gui=bold cterm=bold
