@@ -9,6 +9,7 @@ alias ls='ls --color=always'
 alias grep='grep --color=always'
 alias vimrc='vim ~/.vimrc'
 alias trc='echo TODO'
+alias di='git diff --no-index --word-diff=color --word-diff-regex=.'
 
 rc() { vim ~/.$(ps -p $$ -o comm=)rc ; }
 rc() { source ~/.$(ps -p $$ -o comm=)rc ; }
