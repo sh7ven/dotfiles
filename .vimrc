@@ -28,4 +28,7 @@ let g:netrw_browse_split=3
 " nn <s-e> <Cmd>let f=input('> ','','file')\|if filereadable(f)\|exe 'tabnew' f\|el\|echom '!'\|en<CR>
 nn <s-e> <Cmd>let f=input('> ','','file')\|if filereadable(f)\|exe 'sp' f\|el\|echom '!'\|en<CR>
 nn <c-e> :Explore $PWD<CR>
+
+nn <c-m> <Cmd>let m=input('man> ', '') \| exe 'Man 2' m<CR>
+
 nn qn :nohl<CR>
