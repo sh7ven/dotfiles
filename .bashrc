@@ -21,5 +21,6 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 export HISTSIZE=1000000000
+export HISTFILESIZE=1000000000
 
 PS1="[\[\e[31m\]\\u\[\e[0m\] \W]$ "
