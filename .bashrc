@@ -16,7 +16,8 @@ rc() { source ~/.$(ps -p $$ -o comm=)rc ; }
 mkcd() { mkdir -p "$1" && cd "$1" ; }
 
 export EDITOR=vim
-export PAGER="less --mouse"
+#export PAGER="less --mouse"
+export PAGER="nvim +Man!"
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
