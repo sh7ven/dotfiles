@@ -12,7 +12,7 @@ alias trc='echo TODO'
 alias di='git diff --no-index --word-diff=color --word-diff-regex=.'
 
 rc() { vim ~/.$(ps -p $$ -o comm=)rc ; }
-rc() { source ~/.$(ps -p $$ -o comm=)rc ; }
+ref() { source ~/.$(ps -p $$ -o comm=)rc ; }
 mkcd() { mkdir -p "$1" && cd "$1" ; }
 
 export EDITOR=vim
