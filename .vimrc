@@ -6,14 +6,10 @@ se ts=2 | se sw=2 | se ai | se si | se et
 se nowrap | se mouse=a
 se shm-=S
 se rnu
-se clipboard=unnamedplus
-se re=1
+se re=2
 se hls
 se tm=1000 | se ttm=0
-
-" vn <leader>y :'<,'>w !wl-copy<CR><CR>
-" nn <leader>p :r !wl-paste<CR>
-" aug AutoCopy au! | au TextYankPost * sil! cal system('wl-copy', getreg('"')) aug END
+se clipboard=unnamedplus
 
 let g:mapleader = ","
 map <leader>n :bnext<CR>
@@ -31,4 +27,5 @@ nn <c-e> :Explore $PWD<CR>
 
 nn <c-m> <Cmd>let m=input('man> ', '') \| exe 'Man 2' m<CR>
 
+hi link Todo Comment
 nn qn :nohl<CR>
