@@ -1,0 +1,32 @@
+[window] 
+#blur = true
+#opacity = 0.86
+
+padding = { x = 2, y = 2 }
+dimensions = { columns = 170, lines = 50 }
+dynamic_title = true
+
+position = { x = 960, y = 540 }
+decorations = "None"
+startup_mode = "maximized"
+
+[colors]
+primary = { background = "#000000", foreground = "#ffffff" }
+cursor = { cursor = "#ffffff" }
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+blink_interval = 500
+blink_timeout = 0
+
+[scrolling]
+history = 50000
+
+[font]
+size = 12
+offset.x =  0
+offset.y = -1
+
+[general]
+live_config_reload = true 
+import = [ "~/.config/alacritty/themes/xterm.toml" ]
