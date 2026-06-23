@@ -1,5 +1,6 @@
 filet indent on
 
+let g:loaded_matchparen=0
 se tgc
 sy on
 se ts=2 | se sw=2 | se ai | se si | se et
