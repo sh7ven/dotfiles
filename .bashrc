@@ -10,6 +10,8 @@ alias grep='grep --color=always'
 alias vimrc='vim ~/.vimrc'
 alias trc='echo TODO'
 alias di='git diff --no-index --word-diff=color --word-diff-regex=.'
+alias sudoedit='doas vim'
+alias se='sudoedit'
 
 rc() { vim ~/.$(ps -p $$ -o comm=)rc ; }
 ref() { source ~/.$(ps -p $$ -o comm=)rc ; }
