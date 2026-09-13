@@ -17,6 +17,35 @@ rc() { vim ~/.$(ps -p $$ -o comm=)rc ; }
 ref() { source ~/.$(ps -p $$ -o comm=)rc ; }
 mkcd() { mkdir -p "$1" && cd "$1" ; }
 
+
+alias rcc="g++ -std=c++23 -Wall -Wextra -Werror *.cc -o /tmp/sol && /tmp/sol"
+
+cf() {
+  if (( $# != 1 )) || [[ ! $1 =~ ^([0-9]+)([A-Za-z])$ ]] ; then
+    printf "no problem code given or problem code is wrong. eg: 71A." >&2
+    return 1
+  fi
+
+  mkcd "${BASH_REMATCH[1]}" || return 1
+  touch "${BASH_REMATCH[2]}.cc" || return 1
+
+  cat > "${BASH_REMATCH[2]}.cc" <<EOF
+#include <bits/stdc++.h>
+
+int main(void)
+{
+  std::ios_base::sync_with_stdio(false);
+  std::cin.tie(nullptr);
+
+  /*
+  int n; std::cin >> n;
+  std::print("{}\n", n);
+  */
+}
+EOF
+}
+
+
 export EDITOR=vim
 #export PAGER="less --mouse"
 export PAGER="nvim +Man!"
