@@ -31,16 +31,25 @@ cf() {
 
   cat > "${BASH_REMATCH[2]}.cc" <<EOF
 #include <bits/stdc++.h>
+using namespace std;
+typedef std::size_t st;
+typedef long long ll;
+
+void solve()
+{
+
+}
 
 int main(void)
 {
   std::ios_base::sync_with_stdio(false);
   std::cin.tie(nullptr);
 
-  /*
-  int n; std::cin >> n;
-  std::print("{}\n", n);
-  */
+  int t; cin >> t;
+  while (t--)
+  {
+    solve();
+  }
 }
 EOF
 }
