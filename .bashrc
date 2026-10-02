@@ -13,8 +13,8 @@ alias di='git diff --no-index --word-diff=color --word-diff-regex=.'
 alias sudoedit='doas vim'
 alias se='sudoedit'
 
-rc() { vim ~/.$(ps -p $$ -o comm=)rc ; }
-ref() { source ~/.$(ps -p $$ -o comm=)rc ; }
+rc() { vim "$HOME/.$(ps -p $$ -o comm=)rc" ; }
+ref() { source "$HOME/.$(ps -p $$ -o comm=)rc" ; }
 mkcd() { mkdir -p "$1" && cd "$1" ; }
 
 
@@ -64,4 +64,20 @@ export PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 export HISTSIZE=1000000000
 export HISTFILESIZE=1000000000
 
-PS1="[\[\e[31m\]\\u\[\e[0m\] \W]$ "
+prompt_dir() {
+    if [[ "$PWD" == "$HOME" ]]; then
+        printf '~'
+    else
+        local path="${PWD#$HOME/}"
+        IFS=/ read -ra parts <<< "$path"
+
+        if ((${#parts[@]} >= 2)); then
+            printf '%s/%s' "${parts[-2]}" "${parts[-1]}"
+        else
+            printf '%s' "${parts[0]}"
+        fi
+    fi
+}
+
+#PS1='\u@\h \W % '
+PS1='\u@\h $(prompt_dir) % '
