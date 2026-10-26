@@ -8,32 +8,32 @@
 alias ls='ls --color=always'
 alias grep='grep --color=always'
 alias vimrc='vim ~/.vimrc'
-alias trc='echo TODO'
 alias di='git diff --no-index --word-diff=color --word-diff-regex=.'
 alias sudoedit='doas vim'
 alias se='sudoedit'
+alias todo='vim ~/todo'
+
+# git stuff
+alias st='git status'
+alias dif='git diff HEAD'
+alias add='git add'
 
 rc() { vim "$HOME/.$(ps -p $$ -o comm=)rc" ; }
+trc() { vim "$HOME/.config/alacritty/alacritty.toml" ; }
 ref() { source "$HOME/.$(ps -p $$ -o comm=)rc" ; }
 mkcd() { mkdir -p "$1" && cd "$1" ; }
 
 
 alias rcc="g++ -std=c++23 -Wall -Wextra -Werror *.cc -o /tmp/sol && /tmp/sol"
 
-cf() {
-  if (( $# != 1 )) || [[ ! $1 =~ ^([0-9]+)([A-Za-z])$ ]] ; then
-    printf "no problem code given or problem code is wrong. eg: 71A." >&2
-    return 1
-  fi
-
-  mkcd "${BASH_REMATCH[1]}" || return 1
-  touch "${BASH_REMATCH[2]}.cc" || return 1
-
-  cat > "${BASH_REMATCH[2]}.cc" <<EOF
+tm() {
+  cat > "$1" <<EOF
 #include <bits/stdc++.h>
 using namespace std;
 typedef std::size_t st;
 typedef long long ll;
+#define um unordered_map
+typedef vector<int> vi;
 
 void solve()
 {
@@ -52,6 +52,18 @@ int main(void)
   }
 }
 EOF
+}
+
+cf() {
+  if (( $# != 1 )) || [[ ! $1 =~ ^([0-9]+)([A-Za-z])$ ]] ; then
+    printf "no problem code given or problem code is wrong. eg: 71A.\n" >&2
+    return 1
+  fi
+
+  mkcd "${BASH_REMATCH[1]}" || return 1
+  touch "${BASH_REMATCH[2]}.cc" || return 1
+
+  tm "${BASH_REMATCH[2]}.cc"
 }
 
 
