@@ -12,11 +12,23 @@ alias di='git diff --no-index --word-diff=color --word-diff-regex=.'
 alias sudoedit='doas vim'
 alias se='sudoedit'
 alias todo='vim ~/todo'
+alias t="tmux -u"
+alias ks="tmux kill-server"
 
 # git stuff
 alias st='git status'
 alias dif='git diff HEAD'
 alias add='git add'
+
+commit() {
+  : > commit.txt
+  if [ -z "$EDITOR" ]; then
+    echo "$$EDITOR not set!" ;
+  fi
+
+  "${EDITOR}" commit.txt && 
+    git commit -F commit.txt "$@" # allows stuff like --amend --no-edit
+}
 
 rc() { vim "$HOME/.$(ps -p $$ -o comm=)rc" ; }
 trc() { vim "$HOME/.config/alacritty/alacritty.toml" ; }
@@ -91,5 +103,5 @@ prompt_dir() {
     fi
 }
 
-#PS1='\u@\h \W % '
-PS1='\u@\h $(prompt_dir) % '
+PS1='\u@\h \W % '
+#PS1='\033[31;1m\u\033[m@\h $(prompt_dir) % '
